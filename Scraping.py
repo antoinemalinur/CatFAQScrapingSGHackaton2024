@@ -43,6 +43,9 @@ else:
         # init
         qas = []
 
+        paragraphs = []
+
+
         # For each row
         faq_items = section.find_all('div', class_='views-row')
         for faq_idx, faq in enumerate(faq_items):
@@ -53,31 +56,29 @@ else:
                 # Get answer
                 answer = faq.find('div', class_='views-field-field-answer').get_text(strip=True)
                 if question and answer:
-                    qas.append({
-                        "question": question,
-                        "id": f"faq-{idx + 1}-{faq_idx + 1}",
-                        "answers": [
+                    paragraphs.append({
+                        "context": answer,  # Use the answer
+                        "qas": [
                             {
-                                "text": answer,
-                                "answer_start": 0 #always 0
+                                "question": question,
+                                "id": f"faq-{idx + 1}-{faq_idx + 1}",
+                                "answers": [
+                                    {
+                                        "text": answer,
+                                        "answer_start": 0  # Always starts at 0
+                                    }
+                                ],
+                                "is_impossible": False
                             }
-                        ],
-                        "is_impossible": False
+                        ]
                     })
             except AttributeError:
                 # Skip issue
                 continue
-
         squad_data["data"].append({
             "title": section_title,
-            "paragraphs": [
-                {
-                    "context": context,
-                    "qas": qas
-                }
-            ]
+            "paragraphs": paragraphs
         })
-
 # save to root
 with open("squad_faq.json", "w", encoding="utf-8") as file:
     json.dump(squad_data, file, ensure_ascii=False, indent=2)
