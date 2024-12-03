@@ -1,0 +1,8 @@
+language: "en"
+pipeline:
+- name: "WhitespaceTokenizer"
+- name: "LanguageModelFeaturizer"
+- name: "bert_qa_component.BertQAComponent"
+- name: "ResponseSelector"
+  epochs: 100
+assistant_id: 20241202-174503-central-hutch

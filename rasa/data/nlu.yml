@@ -1,0 +1,9 @@
+version: "3.0"
+nlu:
+  - intent: ask_question
+    examples: |
+      - What is the CATNMSPlan?
+      - Tell me about the product warranty.
+      - What is the return policy?
+      - How do I reset my password?
+      - What are the shipping options?
