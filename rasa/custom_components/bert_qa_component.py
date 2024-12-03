@@ -5,7 +5,8 @@ import torch
 from rasa.engine.recipes.default_recipe import DefaultV1Recipe
 from typing import List, Dict, Any, Text
 from rasa.nlu.featurizers.featurizer import Featurizer
-
+import os
+import json
 import logging
 
 logger = logging.getLogger(__name__)
@@ -16,8 +17,13 @@ class BertQAComponent(GraphComponent):
         logger.info("BertQAComponent is initialized")
 
         super().__init__(component_config)
-        self.tokenizer = AutoTokenizer.from_pretrained('./qa_finetuned_model')
-        self.model = AutoModelForQuestionAnswering.from_pretrained('./qa_finetuned_model')
+        self.tokenizer = AutoTokenizer.from_pretrained('./qa_finetuned_model', from_safetensors=True)
+        self.model = AutoModelForQuestionAnswering.from_pretrained('./qa_finetuned_model', from_safetensors=True)
+
+        # Load the FAQ JSON file into memory (only once during initialization)
+        faq_path = os.path.join(os.getcwd(), 'data', 'squad_faq.json')
+        with open(faq_path, 'r') as f:
+            self.faq_data = json.load(f)
 
     def process(self, message: Message, **kwargs: Any) -> None:
         logger.info(f"BertQAComponent processing message: {message.text}")
@@ -40,8 +46,10 @@ class BertQAComponent(GraphComponent):
         message.set("bert_answer", answer, add_to_output=True)
 
     def get_faq_context(self, question: str) -> str:
-        faq_data = {
-            "What is the CATNMSPlan?": "The CATNMSPlan is a framework designed to help organizations manage their network services.",
-            "What is the return policy?": "Our return policy allows returns within 30 days of purchase.",
-        }
-        return faq_data.get(question, "Sorry, I don't have information on that.")
+        # Search through the loaded faq_data to find the relevant context
+        for category in self.faq_data.get('data', []):
+            for paragraph in category.get('paragraphs', []):
+                for qas in paragraph.get('qas', []):
+                    if qas.get('question').lower() == question.lower():
+                        return paragraph.get('context', "Sorry, I don't have information on that.")
+        return "Sorry, I don't have information on that."
