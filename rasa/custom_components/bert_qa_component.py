@@ -6,14 +6,22 @@ from rasa.engine.recipes.default_recipe import DefaultV1Recipe
 from typing import List, Dict, Any, Text
 from rasa.nlu.featurizers.featurizer import Featurizer
 
+import logging
+
+logger = logging.getLogger(__name__)
+
 @DefaultV1Recipe.register(component_types=[GraphComponent, Featurizer], is_trainable=False)
 class BertQAComponent(GraphComponent):
     def __init__(self, component_config: Dict[Text, Any] = None):
+        logger.info("BertQAComponent is initialized")
+
         super().__init__(component_config)
         self.tokenizer = AutoTokenizer.from_pretrained('./qa_finetuned_model')
         self.model = AutoModelForQuestionAnswering.from_pretrained('./qa_finetuned_model')
 
     def process(self, message: Message, **kwargs: Any) -> None:
+        logger.info(f"BertQAComponent processing message: {message.text}")
+
         question = message.text
         context = self.get_faq_context(question)
         

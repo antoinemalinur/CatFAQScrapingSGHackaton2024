@@ -1,8 +1,24 @@
 language: "en"
 pipeline:
-- name: "WhitespaceTokenizer"
-- name: "LanguageModelFeaturizer"
-- name: "bert_qa_component.BertQAComponent"
-- name: "ResponseSelector"
-  epochs: 100
-assistant_id: 20241202-174503-central-hutch
+- name: WhitespaceTokenizer
+- name: RegexFeaturizer
+- name: CountVectorsFeaturizer
+- name: custom_components.bert_qa_component.BertQAComponent
+- name: DIETClassifier
+- name: EntitySynonymMapper
+- name: ResponseSelector
+- name: FallbackClassifier
+assistant_id: 20241203-093537-prompt-account
+policies:
+# # No configuration for policies was provided. The following default policies were used to train your model.
+# # If you'd like to customize them, uncomment and adjust the policies.
+# # See https://rasa.com/docs/rasa/policies for more information.
+#   - name: MemoizationPolicy
+#   - name: RulePolicy
+#   - name: UnexpecTEDIntentPolicy
+#     max_history: 5
+#     epochs: 100
+#   - name: TEDPolicy
+#     max_history: 5
+#     epochs: 100
+#     constrain_similarities: true
