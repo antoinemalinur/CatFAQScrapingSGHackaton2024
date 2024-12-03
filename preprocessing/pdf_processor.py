@@ -1,4 +1,4 @@
-import re, json
+import re, json, os
 from pypdf import PdfReader
 
 class PdfProcessor:
@@ -216,10 +216,14 @@ class PdfProcessor:
         self.append_content_to_table_of_contents_tree(table_of_contents_tree, section_content)
 
         # Step 4: Save the extracted section content mapping to a JSON file
-        with open(dir_output + 'cat_specs.json', "w") as json_file:
+        with open(os.path.join(dir_output, 'cat_specs.json'), "w") as json_file:
             json.dump(section_content, json_file, indent=4)  # Use `indent=4` for pretty printing
 
         # Save the hierarchical TOC tree with content to another JSON file
-        with open(dir_output + 'cat_specs_tree.json', "w") as json_file:
+        with open(os.path.join(dir_output, 'cat_specs_tree.json'), "w") as json_file:
             json.dump(table_of_contents_tree, json_file, indent=4)  # Use `indent=4` for pretty printing
 
+if __name__ == "__main__":
+    resources_dir = os.path.join(os.getcwd(), 'resources')
+    processor = PdfProcessor(os.path.join(resources_dir, 'cat_specs.pdf'))
+    processor.extract_training_data(resources_dir)

@@ -1,4 +1,5 @@
 import json
+import os
 import requests
 from bs4 import BeautifulSoup
 import re
@@ -79,7 +80,8 @@ else:
             "title": section_title,
             "paragraphs": paragraphs
         })
-# save to root
-with open("squad_faq.json", "w", encoding="utf-8") as file:
+# save to resources folder
+squad_faq_file_path = os.path.join(os.getcwd(), 'resources', 'squad_faq.json')
+with open(squad_faq_file_path, "w", encoding="utf-8") as file:
     json.dump(squad_data, file, ensure_ascii=False, indent=2)
     print("Dataset SQuAD généré avec succès : squad_faq.json")
