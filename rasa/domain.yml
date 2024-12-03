@@ -2,6 +2,7 @@ version: "3.0"
 
 intents:
   - ask_question
+  - ask_questionCAT
 
 entities:
   - topic
@@ -20,3 +21,4 @@ responses:
 
 actions:
   - action_default_fallback
+  - action_answer_question

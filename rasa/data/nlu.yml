@@ -2,8 +2,473 @@ version: "3.0"
 nlu:
   - intent: ask_question
     examples: |
+      - How are you?
+  - intent: ask_questionCAT
+    examples: |
       - What is the CATNMSPlan?
       - Tell me about the product warranty.
       - What is the return policy?
       - How do I reset my password?
       - What are the shipping options?
+      - Has a legal entity been established to conduct the activities related to the CAT?
+      - How is the Consolidated Audit Trail LLC managed?
+      - Does the industry have a role in the management of the CAT?
+      - Does the Consolidated Audit Trail LLC have any officers?
+      - When will Participants begin reporting data to the CAT?
+      - When will Large Industry Members begin reporting data to the CAT?
+      - When will Small Industry Members begin reporting data to the CAT?
+      - What is the role of the Plan Processor?
+      - Who is the Plan Processor for the CAT?
+      - This FAQ has been retired and archived. Please refer to FAQ V1.
+      - How does the CAT funding model set forth in the CAT NMS Plan work?
+      - Will CAT Reporters have access to their own submitted data?
+      - Will SIP and OPRA data be included in the CAT?
+      - Will CAT tie the audit trail data to clearing data?
+      - How will the SEC and Participants access the CAT Data for regulatory purposes?
+      - What are the requirements for accessing historical CAT Data?
+      - How many regulatory users are expected to access CAT Data?
+      - Will the CAT provide the regulators with access to uncorrected data for surveillance?
+      - Will any existing SEC or SRO reporting systems be eliminated once the CAT is operational?
+      - Will there be third-party auditing requirements to make sure the CAT is working properly?
+      - This FAQ has been retired and archived. Please refer to FAQs A5 A6 and A7.
+      - Can Small Industry Members that are not OATS Reporting Members (“Small Industry Non-OATs Reporters”) voluntarily report to the CAT prior to December 2021?
+      - What are the record retention requirements for Industry Member CAT Reporters?
+      - Is CAT a real-time system?
+      - Are primary market transactions subject to CAT reporting?
+      - Does an Industry Member have to report to the CAT orders received or originated but not executed prior to the date an Industry Member is required to begin reporting data to the CAT?
+      - When does Industry Member testing begin?
+      - The CAT Registration form requires that a Registered Principal be named. Must that Registered Principal have a Series 24 license?
+      - What broker-dealers are considered Small Industry Members?
+      - If a firm meets the definition of a Small Industry Member at the time its audited financial statements are prepared but its total capital subsequently exceeds $500000 prior to the Small Industry Member deadline of December 2021 must it immediately start reporting to CAT as a Large Industry Member?
+      - If an Industry Member begins reporting to the CAT prior to June 22 2020 could the Industry Member be subject to disciplinary action if its pre-June 22 2020 CAT reporting does not fully comply with the CAT Compliance Rules?
+      - Which version of the CAT Reporting Technical Specifications for Industry Members should Small Industry Members use to code their CAT reporting systems?
+      - Are order events occurring prior to an IPO symbol’s inclusion on the CAT Reportable Securities List reportable to CAT in Phase 2a?
+      - Why is there a question on the CAT Registration Form (Transaction Registration) asking for a Legal Entity Identifier (LEI)?
+      - Are market maker quotes required to be reported to the CAT?
+      - What are the timestamp requirements for reporting information to the CAT?
+      - Are indications of interest (\IOIs\) or requests for quotes (\RFQs\) reportable to the CAT?
+      - Are CAT Reporters required to record and report information related to any securities other than NMS Securities and OTC Equity Securities to the CAT?
+      - Are all Industry Members required to report NBBO information to the CAT?
+      - Are CAT Reporters required to report to the CAT quotes received via subscriptions to receive market data from market data vendors (such as exchanges or market data aggregators)?
+      - This FAQ has been retired and archived. Please refer to FAQ I9.
+      - How should an Industry Member report timestamps to the CAT if its order handling and order execution systems use different timestamp increments?
+      - Are all messages as represented in order routing protocols such as FIX required to be reported to CAT by Industry Members?
+      - How should Industry Members report transactions involving fractional shares to the CAT?
+      - What types of products will be in scope for purposes of Industry Members reporting details of Orders and Reportable Events to the CAT?
+      - Are Industry Members required to report the equity leg of a complex order in Phase 2a of the revised implementation schedule?
+      - Are all broker-dealers that receive or originate orders in equity securities and listed options subject to the CAT reporting requirements?
+      - A registered investment advisor (RIA) operates within a US registered broker-dealer BD1 (i.e. BD1 and RIA are part of the same legal entity). The RIA originates and routes orders for execution away from BD1. What are the RIA's CAT reporting obligations?
+      - Does the CAT NMS Plan supersede Rule 17a-3?
+      - Are US registered broker-dealers that operate in a foreign country required to comply with the CAT NMS Plan including the clock synchronization requirements?
+      - Is CAT data required to be maintained in a format that could be resubmitted to CAT?
+      - What are the reporting requirements for orders received or initiated by a market maker?
+      - Is a Cancel Report required for an unexecuted IOC (Immediate or Cancel) or FOK (Fill or Kill)?
+      - What are the CAT reporting obligations when providing sponsored access or direct market access to non-BD clients?
+      - How should Exchange for Physicals (\EFP\) transactions be reported to CAT?
+      - What are the CAT reporting obligations when one Industry Member provides sponsored access to another Industry Member?
+      - A broker-dealer accepts orders in Exchange Traded Managed Fund Shares (\ETMF\) or \NextShares\ as defined under Nasdaq Rule 5745. When reporting orders in ETMFs to CAT should prices be reported in the \proxy price\ format or using the Net Asset Value (\NAV\) established at the end of the day?
+      - Are the ALO (Add Liquidity Only) OPO (Opt Out of Locked Market) and STP (Self Trade Prevention) handlingInstructions required to be reported for orders not received by an ATS?
+      - What are the CAT reporting requirements for a proprietary trading firm?
+      - Does a CRD Number qualify as an SRO assigned identifier that can be used as an IMID in cases where a non FINRA member does not have an SRO assigned identifier?
+      - What are the hours for reporting to CAT?
+      - Are event times required to be reported in Eastern Time?
+      - How should an order be identified when the broker (as opposed to the trader) has price and time discretion?
+      - Are Cancel Reports required for expired \DAY\ orders?
+      - Are order adjustments resulting from corporate actions such as dividends and distributions required to be reported to CAT?
+      - How should the share quantity for an order event that involves a fractional number of shares be reported? For example an order for 100-1/2 shares is received and worked by routing away 100 shares and executing the remaining 1/2 share as principal.
+      - How should a fractional number of shares as leavesQty be reported?
+      - An order is received after the market close and then cancelled prior to market open the next day. What is required to be reported to CAT?
+      - Are proprietary orders in OTC equity securities originated in the normal course of market making activity required to be reported to CAT?
+      - How should prices (including fractions) be recorded in CAT?
+      - How should buy-ins be reported to CAT?
+      - Does the requirement that broker-dealers report on actionable indications of interest pursuant to Rule 606 under the Securities Exchange Act of 1934 change what is reportable to CAT?
+      - Are transfers of positions between accounts within the same legal entity reportable to CAT?
+      - CAT FAQs B3 and B38 state that IOIs RFQs and other forms of non-firm expressions of trading interest are not reportable to CAT. What factors should a firm consider when determining whether trading interest regardless of the label attached to it is reportable to CAT?
+      - How should an Industry Member report to the CAT orders filled by the Industry Member from its inventory rather than through the generation of a proprietary order to execute against the order?
+      - Are Industry Members required to report the receipt of a cancellation or modification instruction to the CAT if the order is terminal (i.e. it has already been fully executed or cancelled)?
+      - Are verbal and manual quotes subject to the reporting requirements of Phases 2a 2b 2c or 2d?
+      - In what phase are bids or offers in CAT reportable securities that are provided by an Industry Member or received from another Industry Member off a national securities exchange reportable to CAT?
+      - Are electronic responses to a Request for Quote (RFQ) or other forms of solicitation responses reportable to CAT in Phase 2c (equities) and Phase 2d (options)?
+      - This FAQ has been retired and archived. Please refer to FAQ U1.
+      - Order Internal Route Modified events are not required to be reported to CAT until Phase 2c.  In Phase 2a what orderID should be populated on events subsequent to the internal route modification (e.g. MEOR MEOT)?
+      - If an Industry Member manually initiates a proprietary equities order and simultaneously enters the order into an OMS/EMS is this considered a manual event or an electronic event?
+      - This FAQ has been retired and archived. Please refer to FAQ U26.
+      - Is the conversion of a convertible bond to an equity required to be reported to CAT?
+      - Are ETF creations and redemptions required to be reported to CAT?
+      - Are American Depository Receipt (ADR) creations and cancellations required to be reported to CAT?
+      - Are account transfers between broker-dealers (e.g. ACATS transfers) required to be reported to CAT?
+      - This FAQ was retired and archived concurrent with OATS retirement. Please see FAQ B2 for more information on the timestamp requirements for CAT.
+      - A registered investment advisor (RIA) operates within a US registered broker-dealer BD1 (i.e. BD1 and RIA are part of the same legal entity). The RIA has customers/clients with accounts that are custodied at BD2 and the RIA is an authorized trader on these accounts. When the RIA originates orders in the customer/client accounts at BD2 what are the CAT reporting obligations for BD1 and BD2?
+      - What steps should Industry Members take in the event of an organizational change such as a merger acquisition or succession?
+      - How should the orderType and handlingInstructions fields be populated on the receipt/origination or route of Stop Stop Limit Stop on Quote Stop Limit on Quote Trailing Stop and Trailing Stop Limit orders?
+      - How should the orderType field be populated for orders that are not market orders but are not received/originated or routed with a specific limit price?
+      - What are the reporting requirements when a Stop Stop Limit Stop on Quote or Stop Limit on Quote order is triggered?
+      - What party has the obligation to report the Order Effective event/Option Order Effective event/Multi-Leg Order Effective event (MEOE/MOOE/MLOE) to CAT when all underlying conditions are met such that the order becomes and remains effective?
+      - What are the CAT reporting requirements for Stop Stock orders?
+      - What are the CAT reporting requirements for Trailing Stop orders?
+      - How should the initiator field be populated if an Industry Member modifies or cancels an order based on implicit customer instructions communicated with the order such as with certain ATS order types as well as for actions initiated by the Industry Member unilaterally as a direct result of customer modifications or cancellations?
+      - If executions against an order are tracked throughout the day but a single average price fill is provided to the client after the order is completed or at the end of the day are fulfillments required throughout the day with a fulfillment amendment requirement with each new execution?
+      - This FAQ was moved. See FAQ E31.
+      - When is the Order Effective event/Option Order Effective event (MEOE/MOOE) required to be reported to CAT?
+      - FAQ B57 provides guidance on how the handlingInstructions field should be populated on the receipt/origination or route of Stop Stop Limit Stop on Quote Stop Limit on Quote Trailing Stop and Trailing Stop Limit orders. In instances where it is known that the order is a Stop order but the exact stop price is unknown because it is either based on an underlying condition or will be determined by the destination venue then how should the Stop be reported in the handlingInstructions?
+      - If an Industry Member uses the same account for both market making and non-market making proprietary activity what accountHolderType should be used when reporting to CAT?
+      - How should the price and eventTimestamp fields be populated on a New Order event (MENO)/ Order Accepted event (MEOA) for a trade priced at the Net Asset Value (NAV) if the price is not known until after 4:15:00 pm ET on the date of origination/receipt?
+      - How should the price and eventTimestamp fields be populated on a Trade Event (MEOT) for a trade priced at the Net Asset Value (NAV)?
+      - What are the CAT reporting requirements for equity and option orders tied at a net price to equity fixed income futures or another product that is not CAT reportable?
+      - Is my response to a Request for Quotes (“RFQ”) or other solicitation process required to be reported as a New Order event (“MENO”) or New Option Order event (“MONO”) in Phase 2a or Phase 2b if my response is selected as the winning bid?
+      - What are the CAT reporting requirements for a scenario where a customer order is received and executed and an Industry Member makes an accommodation to the customer due to a customer error?
+      - Is an Order Cancelled event (“MEOC”) required for Good till Cancelled (“GTC”) orders if an issue symbol is delisted?
+      - Are Industry Members required to capture and report a requestTimestamp on modify/cancel events initiated by the firm?
+      - Are Industry Members required to report Route Cancelled events to CAT for “mass cancels” initiated by a single instruction given to an execution venue?
+      - What are the CAT reporting obligations when a security is the subject of a corporate action (e.g. merger/acquisition) and is now a different security but trades under the same issue symbol and the customer/client wants to trade the new security?
+      - How has the Operating Committee defined “Trading Day”?
+      - What is the definition of \foreign broker-dealer\ for purposes of populating the destination type field for Industry Member reporting?
+      - What is the definition of institution for purposes of the Account Type Code value of \A\ Institution?
+      - The affiliateFlag requires the designation of an affiliate. How should CAT Reporters determine who is an \affiliate\ for these purposes?
+      - When should the value ‘O’ (Market Making) be used for accountHolderType?
+      - What is the definition of a “cabinet” order for purposes of the “orderType” field for Exchange-listed options in the CAT Reporting Technical Specifications for Industry Members?
+      - Are orders received or routed via instant message (IM) or email considered “manual” or “electronic” for purposes of reporting to the CAT?
+      - The IM Technical Specifications state that “Industry Members are required to report responses to RFQs and other forms of solicitation that are firm expressions of interest to trade”. How are “other forms of solicitation” defined for CAT reporting purposes?
+      - Are Industry Members required to report the receipt of an order to the CAT if the Industry Member rejects the order?
+      - How would an Industry Member determine the time of order receipt?
+      - A registered representative of BD A an Industry Member CAT Reporter creates an order for 10000 shares that he later plans to allocate to 10 customer accounts for which he has trading discretion. What are the CAT reporting obligations for BD A for the 10000 share order created by the registered representative?
+      - BD A an Industry Member CAT Reporter receives 10 separate and distinct customer orders that together total 10000 shares. A registered representative of BD A sends a single 10000 share order to the trading desk. What are the CAT reporting obligations for BD A?
+      - Should accounts belonging to family members of an employee of an Industry Member CAT Reporter be reported with the accountHolderType Code \E\?
+      - Should accountHolderType Code \E\ be used for orders received from former or retired employees or employees of other broker-dealers?
+      - Should accountHolderType \E\ be used if a registered representative has discretion over a customer account?
+      - For orders received electronically from another CAT Reporter must the the Routed Order ID reported to CAT by the receiving CAT Reporter be in the exact format as which it was received from the sending CAT Reporter?
+      - How should orders received with instructions from the customer to buy as much stock as possible for a specific dollar amount (e.g. $1000) commonly referred to as \cash\ orders be reported to CAT?
+      - What is the purpose of the tradingSession field?
+      - An Industry Member receives an order with instructions to execute the order as agent or riskless principal during regular market hours. The Industry Member accumulates shares during regular market hours but does not execute the customer order until after the close at an average price of the shares accumulated during regular market hours. What should be populated in the tradingSession field on the New Order or Order Accepted Event?
+      - An Industry Member receives an order with instructions to execute the order on a net basis. No specific instruction is given with respect to which trading session the order is eligible to be executed. The Industry Member accumulates shares during regular market hours but does not execute the customer order until after the close at a net price which is reported to the tape. What should be populated in the tradingSession field on the New Order or Order Accepted Event?
+      - An Industry Member receives an order with instructions to execute during regular market hours. However when the regular trading session expires the order is not complete and the customer instructs the Industry Member to finish the order. What should be populated in the tradingSession field on the New Order or Order Accepted Event in this instance?
+      - If the handlingInstructions reported with an order contains instructions that reflect the order is only eligible to be traded at the time it is received such as \Fill or Kill\ or implies the time the order is eligible such as \Market on Open\ is the tradingSession field still required to be populated?
+      - If a firm does not receive specific instructions from its customer as to which session an order may trade and the firm does not otherwise communicate to the customer that the order will only be traded during specific market sessions what should be populated in the tradingSession field?
+      - How should the tradingSession field be populated for orders that are received with instructions that they are only to be executed on a foreign market?
+      - Is the tradingSession field required to be populated for proprietary orders originated by the firm and where no customer instruction is received?
+      - How should the timeInForce field be populated for \Fill or Kill\ orders that contain a limit price?
+      - Why is there not an allowable value of unknown (U) for the accountHolderType Code field on New Order Events (MENO)?
+      - What accountHolderType value should be used if the beneficial owner of an account for which an order is received is an employee but the account also meets the definition of an institutional account?
+      - What is the purpose of the infoBarrierID field and how should it be used?
+      - How should the accountHolderType be populated for orders received from an Investment Advisor or money manager exercising discretion over client accounts? Should the accountHolderType represent the status of the IA/money manager or the status of the IA/money manager’s client?
+      - What value should be populated in the deptType field for orders in which a broker-dealer is providing direct market access to customers that are not broker-dealers?
+      - How should the accountHolderType field be populated in relation to NYSE Account Type Indicators?
+      - What is the difference between ‘CND’ and ‘CMC’ handlingInstructions?
+      - Are firms that provide sponsored access/direct market access required to report handling instructions on their new orders for handling instructions not intended for the sponsored access/direct market access provider but for the destination market center?
+      - This FAQ has been retired and archived. Please refer to FAQ B58.
+      - How should Industry Members populate handling instructions for orders received or originated with instructions to work the order using a trading algorithm?
+      - Are the material terms of an order that are communicated via default or implicit handling instructions such as instructions that are defaulted at a port or connection level required to be reported to CAT?
+      - What accountHolderType value should be used if the beneficial owner of an account is a non-broker-dealer foreign affiliate or non-reporting foreign broker-dealer but the beneficial owner also meets the definition of another accountHolderType value (e.g. institution)?
+      - How is tradingSession “ALL” defined?
+      - How should the tradingSession field be populated for option orders?
+      - FAQ D30 states that material terms of an order that are communicated via default or implicit handling instructions such as instructions that are defaulted at a port or connection level are required to be reported to CAT.   How must such instructions including standing instructions firm-wide defaults or port- or connection-level defaults be reported?
+      - When must Industry Members use the Smart Router (‘SMT’) handlingInstructions value?
+      - Should the handingInstructions value of ‘CSC’ (Contingent on a Spread Condition) be reported to CAT if an order is being worked by an algorithm that may utilize strategies that work the order in a way similar to a spread condition?
+      - Are Industry Members that provide sponsored access/direct market access required to report the ‘DIR’ handlingInstructions value on the Order Accepted or New Order event?
+      - When an order is routed internally at an Industry Member Section 6.3(d)(ii)(F) of the CAT NMS Plan (\routing of an order\) as applied by Section 6.4 of the CAT NMS Plan requires the reporting of the identity and nature of the department or desk to which the order is routed. What is considered \routed internally\?
+      - Are Industry Members required to report to the CAT the routing of an order if the routed order is rejected by the Industry Member or Participant to which the order is routed?
+      - BD A an Industry Member CAT Reporter receives a customer order for 10000 shares and subsequently routes 2000 shares of the order to Exchange A another CAT Reporter. BD A’s trader or trading system subsequently modifies the price of the 2000 share order routed to Exchange A. Is BD A required to report the modification of the 2000 share order routed to Exchange A?
+      - Are orders routed using ACES Pass-Thru considered manual or electronic?
+      - This FAQ has been retired and archived. Please refer to FAQ E2.
+      - If a .RA transaction represents an event that is CAT reportable is the transaction report submitted to a FINRA trade reporting system with a .RA modifier required to be matched to the related CAT Trade Event?
+      - Executed orders that exceed 100 million shares must be reported to the ORF in two or more transaction reports because the OTC Trade Reporting Facility (ORF) will not accept trades that exceed 99999999 shares. Can a single CAT Trade Event be matched to more than one ORF trade report?
+      - This FAQ has been retired and archived. Please refer to FAQ B57.
+      - This FAQ has been retired and archived. Please refer to FAQ B58.
+      - Can an order be marked as Short Exempt on the Order Route event if the order was reported as a regular short sale on the related New Order event?
+      - At 8:30:00:000 a.m. BD1 receives a market-on-open customer order and guarantees the opening price. At 9:30:00.000 a.m. the market opens and at 9:35:00.000 a.m. BD1 receives the opening price information and executes the trade. What execution time should be used in the CAT Trade Event and related trade report?
+      - At 8:30:00 a.m. Member BD1 executes a customer order at the 4:00:00 p.m. closing price from the previous day. What execution time should be used in the CAT Trade Event and related trade report?
+      - Is a firm that routes an order away from the firm for execution required to report routing instructions (e.g. specific order types and terms and conditions used for the order when sending to an exchange) to CAT in the handlingInstructions field on the CAT Order Route Event?
+      - Firm A routes an order to Firm B with instructions to send the order to another member or exchange for execution with specific terms and conditions that the executing venue must follow. Must Firm B report the terms and conditions intended for the executing venue as handling instructions on Firm B’s CAT Order Accepted Event in the handlingInstructions field?
+      - Are executions of orders routed as agent to an exchange or another CAT Reporter required to be reported by the routing firm?
+      - A firm performs multiple functions on the same desk or within the same department such as program trading and non-program trading. Is an Internal Route Event required for orders sent between traders that perform those separate functions?
+      - When a firm has multiple functions performed on the same desk or within the same department how does the firm determine which receivingDeskType to use in the CAT Internal Route Event for orders received by such multi-function desks?
+      - This FAQ has been retired and archived due to NYSE's Crossing Session II being decommissioned at the end of January 2024.
+      - When a broker-dealer routes an order to an Industry Member the routing broker-dealer may not include the special handling details associated with the original customer order as received by the routing broker-dealer. Are these original special handling details expected to be reported by subsequent Industry Members to which the order is routed?
+      - What are the CAT reporting requirements when a trade that was reported to a TRF is cancelled?
+      - If a trade is corrected in a TRF what must be reported to CAT?
+      - If a trade is reported on an “as of “basis to the TRF what are the CAT reporting requirements?
+      - Is the TRF reported Branch/Sequence Number or FINRA Compliance Number required to be unique within an IMID (e.g. MPID) within a day?
+      - Can the TRF reported Branch/Sequence Number or FINRA Compliance Number contain a space?
+      - When should the cancelFlag field be set to true on the Trade event (“MEOT”)?
+      - Does Section 6.3(d)(ii) of the CAT NMS Plan which sets forth the reporting requirements with regard to the “routing of an order” apply to both internal and external routes?
+      - How should the affiliateFlag be populated when routing an order between IMIDs belonging to the same broker-dealer?
+      - Exchange origin code is required to be reported on CAT Order Route events when routing orders to an options exchange. However it is not required by all options exchange protocols for certain market maker orders. In these cases with what should Industry Members populate the exchOriginCode field on the Options Order Route Event?
+      - Pursuant to the SEC’s Exemptive Order dated June 11 2020 instead of requiring Industry Members to record and report to CAT a cancelled trade indicator for trades that are cancelled FINRA Facility Data submitted to the Central Repository by FINRA would be the source of the cancelled trade indicator. How should Industry Members report trade cancellations and corrections to CAT?
+      - Pursuant to the SEC’s Exemptive Order dated June 11 2020 instead of requiring Industry Members to record and report to CAT a cancelled trade indicator for trades that are cancelled FINRA Facility Data submitted to the Central Repository by FINRA would be the source of the cancelled trade indicator.  Does this apply if the trade is reversed in the FINRA Facility on a subsequent day?
+      - If an Industry Member routes an order to another Industry Member or exchange and it is rejected because a data element was malformed and the message was unable to be read or parsed is the Industry Member required to report the related order events to CAT given that they might reject (for example for a malformed symbol or optionID that is not on the CAT Reportable Equity/Options Securities Symbol Master list)?
+      - What handling instructions must be applied to order events designated for participation in auctions?
+      - What is a representative order?
+      - When an order is executed on a riskless principal basis and reported to a TRF using the alternative method of trade reporting is the non-media riskless principal TRF report required to be linked to the related CAT Order Fulfillment Event?
+      - How does a CAT Reporter determine the manner in which an agency order filled on an average price basis should be reported? More specifically when should an Order Fulfillment (as reflected in Scenario 2.3.4 Fill of a Single Customer Order on an Average Price Basis in the CAT Industry Member Reporting Scenarios document) be used instead of Route Reports?
+      - BD A receives orders from four separate customers totaling 10000 shares all with instructions to handle as agent. BD A sends one larger order properly marked as agency to a Participant exchange or another market center in an attempt to obtain an execution for these four orders. BDA holds the individual customer orders and never gives up control of these orders to any other broker-dealer or market center. Upon receipt of an execution of the larger order the shares are recorded in my firm's agency allocation account. Subsequently BDA allocates the shares from the agency allocation account to the individual customer accounts based upon a predetermined allocation methodology. How should these orders and related executions be reported to CAT?
+      - Are Industry Members required to link a Representative Order with the underlying order(s) for the Representative Order?
+      - Are there any exceptions to the requirement to link Representative Orders with the underlying order(s)?
+      - What is the difference between order level linkage and fulfillment level linkage on a representative order?
+      - Is a CAT Reporter required to report two separate timestamps for Manual Order Events?
+      - Are orders received via the telephone and then manually entered into a clearing firm's system considered electronic?
+      - What does the manualFlag field represent?
+      - If a broker receives a telephone call from a customer who places an order for 100 shares of ABC while on the phone and the broker simultaneously enters the order into his/her firm’s order handling and execution system as the broker receives the order from the customer over the phone does the firm need to report to the CAT both a manual receipt time and an Electronic Capture Time?
+      - If an Industry Member holds a peg order is the Industry Member required to report to the CAT a modification to the peg order every time the market moves?
+      - Must a FINRA member ATS use its ATS MPID to report ATS activity to CAT?
+      - What should be populated in the \nbboTimestamp\ fields on the New Order Order Accept Child Order Child Order Modified Order Modified Order Adjusted and Trade Events for ATSs?
+      - A firm operates a display ATS that only publishes periodic snapshots of aggregate quotes based on a pre-determined frequency (e.g. every X milliseconds). The aggregate quote published only reflects open interest at the time of the snapshot. Consequently there may be orders that have been received executed canceled or repriced as the result of a change in NBBO (or other relevant reference price) but no aggregate quote will be published until the time of the next snapshot. Is the ATS required to generate and report order display modifications under these circumstances?
+      - An ATS receives an IOC order and prior to obtaining any applicable reference price necessary to process the order the ATS determines there is no contra side interest available for execution. Consequently the ATS immediately cancels the order back to the subscriber without ever determining an applicable reference price. What should the ATS populate in the NBBO (or other applicable reference price) information fields?
+      - How should an ATS report NBBO (or other relevant reference price) information if the NBBO is invalid or one sided at the time the ATS referenced the NBBO (or other relevant reference price)?
+      - Is the handlingInstructions field required to be populated by ATSs when the atsOrder Type includes a condition that is also an allowable handlingInstruction value such as Add Liquidity Only?
+      - Are orders in foreign securities reportable?
+      - If a firm receives an order in a foreign security that is an OTC Equity Security and routes the order to another broker-dealer who then executes the order in the US what is the reporting obligation of the routing firm?
+      - If an order in a foreign security that is an OTC Equity Security is broken up and executed across multiple markets i.e. part of the order is executed in the US and part of the order is executed and reported in the foreign market what are the CAT reporting obligations?
+      - If an order is received under the US symbol of a foreign security that is an OTC Equity Security and the market of execution is not known by the end of the CAT Trading day does the firm have a CAT reporting obligation?
+      - What are an Industry Member's CAT reporting obligations when a US symbol is not available on the day an order is received and executed? For example an order is received and executed on Monday at which time a symbol is requested. The symbol however is not issued until Wednesday.
+      - If an order is received under the US symbol of a foreign security that is an OTC Equity Security and the customer directs that the order only be executed in a foreign market is this type of directed order required to be reported if the order is not executed by the end of the CAT Trading day?
+      - If an order is received under the US symbol of a foreign security that is an OTC equity security and the firm decides to send the order to a foreign market to be executed and reported but the order ultimately gets executed in the US does the firm have a CAT reporting obligation?
+      - If a non-US broker-dealer routes an order to a US broker-dealer how is the US broker-dealer required to report the receipt of the order to the CAT?
+      - If a Reportable Event is priced in a non-U.S. dollar currency how will such prices be reported to the CAT?
+      - When must the senderType field be populated with a value of ‘O’?
+      - When must the destinationType field be populated with a value of ‘O’?
+      - Are quotations in OTC Equity Securities that are sent by an Industry Member to foreign exchanges reportable to CAT?
+      - What are the CAT reporting responsibilities with respect to OTC Link messages?
+      - What are the reporting obligations for OTC Link messages directed by an OTC Link ATS subscriber to a Global OTC quote displayed on the OTC Link ATS?
+      - Does an Industry Member have to report a New Quote event (MENQ) for quotes in OTC equity securities that were originated prior to the date an Industry Member is required to begin reporting Phase 2d data to the CAT?
+      - The Industry Member Technical Specifications state that “If the status of a quote that was sent by an Industry Member to an Industry Member inter-dealer quotation system is changed as a result of an automatic process then a Quote Status event is only required to be reported by the inter-dealer quotation system.” How is an ‘Automatic Process’ defined for the purpose of reporting Quote Status events to CAT?
+      - What are the reporting requirements for quotes entered directly into OTC Link IDQS via OTC Link IDQS’s Dealer Application?
+      - Will Options Clearing Corporation (OCC) data be included in the CAT?
+      - What Industry Member Data will be reportable to the CAT during Phase 2b of the revised implementation schedule?
+      - Are responses to auctions reportable in Phase 2b?
+      - Are option assignments required to be reported to CAT?
+      - Is the ‘OPT’ handling instruction appropriate for Buy/Writes or option exercises and assignments?
+      - When an Industry Member receives a simple electronic order in Listed Options and solicits interest in the execution of the order are the solicitation and the responses to the solicitation reportable in Phase 2b?
+      - When an Industry Member receives a complex order including an equity leg and solicits interest in the execution of the order are the equity leg component of the solicitation and the responses to the solicitation reportable in Phase 2a?
+      - When sending orders to CAT are Options Market Makers required to mark such orders with an open or close indicator?
+      - Does the exemption for Options Market Maker quotes apply to orders that function as quotes?
+      - Can an Industry Member choose to report manual option events in Phase 2b though they are not required until Phase 2d?
+      - The concept of selling long or short is not applicable to options.  How should the side field be populated on options events for a sell order?
+      - If an Industry Member manually initiates a proprietary order and simultaneously enters the order into an OMS/EMS is this considered a manual event or an electronic event?
+      - Is it appropriate to use the 'OPT' handling instruction when an equity order does not become executable until a related option trade has been executed but is not part of a complex order such as a Buy/Write?
+      - How must the priceType field be populated on multi-leg events?
+      - How must Industry Members capture the firmDesignatedID (“FDID” or “Firm Designated ID”) on Multi-Leg events in scenarios where the equity leg and option leg are originated in and/or settled to different accounts of the same customer?
+      - What eventTimestamp must be used when reporting a manual Option Trade (MOOT) event?
+      - Is an electronicTimestamp required when reporting a manual Trade Event (MEOT) or manual Option Trade Event (MOOT) to CAT?
+      - Which handlingInstructions value should Industry Members populate on option events when the limit price is based on option Greeks or another formula based on market conditions?
+      - When must the pairedOrderID be reported to CAT?
+      - When must cancel information be reported for an Option Trade Event (“MOOT”)?
+      - What reportable events are CAT Reporters required to report to the CAT when using an algorithmic strategy involving multiple component securities (for example a Vega algorithm) where the trading instructions do not include the full materials terms of an order for each or any component security?
+      - What CAT reportable events are required when at least one but not all legs of a multi-leg strategy are known at the time the instruction is given from one Industry Member to another Industry Member?
+      - When should Industry Members report the ‘FB’ handling instruction on an Order Route event?
+      - When must the ‘OPT’ handlingInstructions value be used in Phase 2d?
+      - Are any handling instructions required when a paired options order is routed to an options exchange and the exchange member is willing to meet price improvement offered by other exchange participants?
+      - How should orders sent to a Floor Broker on the New York Stock Exchange NYSE American LLC or NYSE Arca Inc. be reported to CAT?
+      - What is a Firm Designated ID (FDID)?
+      - Can actual account numbers be used as the FDID when submitting data to CAT?
+      - Can a Firm Designated ID (FDID) change each Trading Day?
+      - Which Firm Designated ID (FDID) must be provided in scenarios involving managed accounts where an order may be placed in a master account with subaccount allocations made at a later time?
+      - Which FDID must be provided for firm owned or controlled accounts?
+      - If an Industry Member CAT Reporter uses multiple reporting vendors for both Transaction and Customer and Account reporting should the same FDID be reported by each vendor on behalf of the Industry Member CAT Reporter?
+      - How will regulators use the Firm Designated ID (FDID)?
+      - When will Industry Members be required to report the Firm Designated ID (FDID) to the CAT?
+      - CAT FAQ M2 prohibits use of a customer account number as the FDID. Does this apply to proprietary accounts of an Industry Member?
+      - CAT FAQ M2 states acceptable Firm Designated IDs may include without limitation a newly created unique identifier or an internal only identifier used by a broker-dealer that cannot be used to effect a transaction and would not constitute \Customer Account Information\ or “Customer Identifying Information” as defined in the CAT NMS Plan. Are there prescribed methodologies for masking account numbers?
+      - Is the use of a Relationship ID to populate the FDID if the account structure is not available at the time of order receipt limited to only institutions?
+      - Where can I find additional information regarding the Firm Designated Identifier (FDID)?
+      - Does a Firm Designated ID apply to a trading account or to a Customer? Certain provisions in the CAT NMS Plan refer to Firm Designated IDs for Customers.
+      - If an Industry Member does not have an account number available to its order handling and/or execution system at the time of order receipt what should be reported as the Firm Designated ID (FDID)?
+      - What should be reported as the Firm Designated ID (“FDID”) when an employee of the Industry Member is exercising discretion over multiple client accounts and creates an aggregated order for which a trading account number of the Industry Member is not available at the time of order origination?
+      - FAQ M1 identifies certain limited circumstances where a change/replacement in Firm Designated ID (FDID) value associated with a particular trading account or Relationship ID would be permissible. If an Industry Member changes an FDID due to one of these limited circumstances prior to Full CAIS what additional steps are required?
+      - Is an Industry Member permitted to submit a different firmDesignatedID to CAIS than was populated as the firmDesignatedID on the related Transaction Order event for a specific trading account Relationship ID or Entity ID within the firm?
+      - Can CAT Reporting Agents report CAT Data to the CAT on behalf of an Industry Member without the Industry Member’s consent?
+      - If one or more third parties (e.g. clearing firms) is used by an Industry Member to report data to CAT who does the compliance obligation belong to if the third-party reporter is also a CAT Reporter?
+      - May an Industry Member use more than one third party to transmit data on its behalf to CAT?
+      - Are there any scenarios where an Industry Member can assume another CAT Reporter will report an order to CAT on its behalf absent any specific reporting agreement between the two CAT Reporters?
+      - Are Industry Members that report to CAT using a third-party vendor that submits reportable data to the CAT using a private line connection required to transmit their CAT reportable data to the third party vendor via a private line connection?
+      - If an Industry Member introducing firm uses a third party service bureau’s system such as an Order Management System provided by its clearing firm and the third party service bureau transmits data to CAT on behalf of the introducing firm must there be a reporting agreement between the introducing firm and third party vendor?
+      - If a firm uses a third party CAT Reporting Agent to submit data on its behalf can the firm satisfy its CAT recordkeeping obligations by having the third party retain the data and provide it upon request?
+      - What are the mechanisms for reporting to CAT?
+      - What access methods are available to Industry Members to report to CAT?
+      - Will FINRA CAT LLC provide some type of software/workstation for Industry Members to transmit the required order data?
+      - If a clearing firm enters into agreements with each of its correspondents to transmit data to CAT on behalf of the correspondents is a separate Reporter ID required for each correspondent?
+      - Can order events for more than one CAT Reporter be submitted to CAT in a single file?
+      - Are back-up circuits required for reporting to CAT via SFTP?
+      - Where can information on obtaining entitlement to CAT be found?
+      - What are the Web addresses used to transfer CAT data?
+      - Where can information on obtaining access to the private network for reporting to CAT be found?
+      - Can files be sent to CAT using SFTP via the Internet?
+      - Who do I contact if I need to change the configuration of my connection to the private network?
+      - Can records submitted via the CAT Web Portal be saved?
+      - Where can the status of the CAT system be found?
+      - Can a CAT Reporter share its CAT connectivity with other affiliated CAT Reporters or affiliated CAT Reporting Agents?
+      - How can a CAT Reporter obtain information about its reporting metrics including linkage statistics?
+      - What will happen if order information is submitted for a security that is not CAT reportable?
+      - If one record in a file is rejected will the whole file be rejected?
+      - When will rejections be available?
+      - What are the mechanisms for an Industry Member to correct a rejected order event?
+      - Can previously accepted records be corrected?
+      - Can previously accepted records be deleted?
+      - For what reasons are Data Files rejected by CAT?
+      - For what reasons are records rejected by CAT?
+      - When must an Industry Member resubmit a file that is rejected by CAT?
+      - Does CAT reject secondary events if the parent is not present? For example if an Order Route is submitted and passes format validations but the related New Order Event is not reported or rejected will the Order Route automatically be rejected?
+      - Can accepted data be viewed in CAT?
+      - If a GTC limit order is executed several months after receipt of the order will CAT reject the Trade Event?
+      - If a cancellation of an order is received after it has been executed and an Industry Member submits an Order Canceled Event to CAT will it be rejected?
+      - What is the criteria for determining if a Reportable Event report is late and therefore marked as such in a CAT Reporter’s reporting statistics?
+      - What is the T+3 error correction timeframe based on (e.g. submission date original error date etc.)? Example: if an order event is submitted on T and is rejected on that day then corrected on T+1 but the correction on T+1 fails is the event on T considered \corrected\ or does the T+1 rejection need to be addressed and if so when?
+      - What customer information must Industry Members report to the CAT?
+      - Are CAT Reporters required to report Customer-IDs to the CAT?
+      - When must Industry Members submit Customer Account Information and Customer Identifying Information to the CAT?
+      - Are Industry Members required to report a Legal Entity Identifier (LEI) for their Customers to the CAT?
+      - What is the definition of customer under the CAT NMS Plan? Who is the customer for purposes of the CAT: the end customer the introducing broker or the clearing broker?
+      - Are Industry Members required to report large trader identifiers (“LTIDs”) to the CAT and if so when?
+      - Is an Industry Member permitted to provide Sensitive Identifiers dates of birth and account numbers as a part of the Customer Identifying Information and Customer Account Information?
+      - May Industry Members provide Customer Account Information on all of their accounts not just Active Accounts or those Active Accounts in scope for a given phase of reporting?
+      - What is an Unidentified Large Trader ID (ULTID) and are all Industry Members required to report ULTIDs to CAT CAIS?
+      - Is the ltidEffectiveDate the date when the LTID was assigned by the SEC or the date that the firm was provided the LTID?
+      - What is the ltidEndDate?
+      - Are regulators expecting complete accuracy with respect to the ltidEndReason and roleEndReason?
+      - How should an Industry Member populate the ltidEffectiveDate if it did not record the date on which the LTID or ULTID became associated to the FDID within its systems?
+      - If an Industry Member erroneously ends an LTID to FDID association and needs to reestablish it what should the ltidEffectiveDate be?
+      - If an Industry Member ends an LTID to FDID association for a legitimate reason (such as the customer no longer qualified as a large trader) and later is required to reestablish it what should the ltidEffectiveDate be?
+      - Can an Industry Member submit the same CAIS record every business day? Or should the Industry Member submit only a delta record? For example if a record is submitted on T and nothing changes can the same record be submitted on T+1 T+2 etc.? Or should the Industry Member only resubmit the record if a required data element changes?
+      - Are Industry Members required to report LTIDs for dormant or inactive accounts? For example an Industry Member has a customer that qualifies as a Large Trader but that customer has not had any account activity for several months.
+      - When are account movements between broker-dealers (e.g. merger/acquisition) required to be linked in CAIS?
+      - When will the FDID Refresh Reports be delivered in the Production Environment and by what date must Industry Members comply with the Periodic Customer & Account Information Refresh requirement?
+      - When is an LTID considered to be reportable into CAIS?
+      - What is the reporting deadline for reporting Customer and Account information for the LTID Phase and Full Customer and Account Phase?
+      - If an account does not have an account holder or authorized trader with an LTID or ULTID but has other individuals or entities with an LTID or ULTID that may have some other relationship to the account must that account be reported in the LTID Phase of CAIS?
+      - Do introducing and non-self-clearing executing brokers have CAIS LTID reporting obligations?
+      - Do Reporting Agents need to certify separately from the BDs they are supporting?
+      - If my firm is a broker-dealer (CRD) that uses a Reporting Agent to report into CAT CAIS does my firm need to certify separately if we have CAIS-reportable activity?
+      - What actions does a Reporting Agent need to take to certify the broker-dealers (CRDs) it will be reporting on behalf of?
+      - When will CAIS open for Production and what happens after that date?
+      - What is expected to be in CAIS LTID on April 26 2021 when mandatory reporting starts?
+      - Do proprietary trading firms that do not handle customer orders have an obligation to report to CAT CAIS?
+      - Where can I find more information on the SEC Large Trader Requirements?
+      - When introducing brokers and executing brokers use a separate clearing broker for the accounts of their clients what are the responsibilities for LTID reporting?
+      - Can production data be used in the CAT CAIS Test environment?
+      - May an Industry Member leverage a previously established Reporting Relationship for CAIS? For example if an Industry Member has already authorized a submitter to report transaction data to CAT must that Industry Member also authorize the same submitter to report data to CAIS?
+      - Where can I find a list of the LTIDs?
+      - Where can Industry Members find information regarding production readiness testing requirements for CAT CAIS?
+      - Is there a record limit for files submitted to CAT CAIS through SFTP?
+      - How do the CAT reporting requirements for Large Trader IDs (LTIDs) and Legal Entity Identifiers (LEIs) differ?
+      - Why is there a question on the CAT CAIS Registration Form asking for a Legal Entity Identifier (LEI)?
+      - The CAT NMS Plan specifies that “Active Account” information needs to be populated in CAIS with the implementation of Phase 2e (Full CAIS). What is an “Active Account”?
+      - FAQ Q40 states that all accounts with any CAT-reportable activity on or after June 12 2022 must be reported to CAIS with the implementation of Phase 2e (Full CAIS). Are Industry Members required to capture and report updates or changes to customer and account information that occur between June 12 2022 and the first time the record is required to be reported to CAIS?
+      - A broker-dealer systematized a Customer’s account information on a specific date but the new account form was dated with a date prior to the systematized date. Is it permitted for the broker-dealer to report the later systematized date as the fdidDate on the related FDID Record?
+      - The CAT Reporting Technical Specifications for Industry Members allows for a firmDesignatedID value of ‘PENDING’ if an FDID has not yet been created when an order has been received. Should Industry Members report a firmDesignatedID value of ‘PENDING’ to CAT CAIS?
+      - How should Industry Members report customer and account address information to CAIS?
+      - FAQ Q44 states that an Industry Member must report all addresses at the Customer-level and Account-level if such address information is reasonably available. If an Industry Member happens to maintain multiple addresses for an Account and/or Customer that are not directly used for routine account and/or customer communications are they still required to be reported to CAIS?
+      - How should Industry Members populate the customerType field for a Customer who has a US Taxpayer Identification Number but a foreign address foreign identification/passport or is otherwise identified as foreign by the Industry Member?
+      - How should Industry Members utilize the ‘ADVISER’ value in the customerType field?
+      - What address should an Industry Member report to CAT CAIS for accounts that are owned by the Industry Member such as proprietary trading accounts and inventory accounts?
+      - Following the closure of an account and the associated FDID being ended in CAIS is an Industry Member required to re-activate the FDID in CAIS for non-CAT reportable entries such as delayed dividend payments?
+      - Is a Global Intermediary Identification Number (“GIIN”) an accepted identifier to generate a foreignTIDType for a foreign legal entity?
+      - How should an Industry Member populate the roleStartDate field if it did not record the date on which the Customer entered into the specified role on the account?
+      - What date should Industry Members use to populate the “end date” fields (e.g. fdidEndDate roleEndDate) when an event has triggered the closure of an account? For example when a minor reaches the age of majority for a custodial account (e.g. UGMA/UTMA) or upon the death of an account holder for a beneficiary account how should Industry Members populate these fields?
+      - FAQ B53 states that account transfers between broker-dealers are not orders as defined by Rule 613. How should such activity be reflected in CAIS?
+      - Starting with the implementation of Phase 2e (Full CAIS) Industry Members must report one mailing address associated to the FDID in the ‘ADDRESS1’ value of the addrType field. If an FDID is based on a relationship that represents multiple customers with different addresses and the Industry Member does not store an address for the relationship but maintains the addresses at the customer level what address should the Industry Member report to CAIS for ‘ADDRESS1’?
+      - When an Industry Member receives a Material Inconsistency notification is it required to contact its Customer to confirm the Customer’s information?
+      - What Customer information should be reported to the CAT when a legal entity (an “entity authorized trader” for purposes of this FAQ only) - such as a registered investment adviser or a bank trust department - is authorized to provide trading instructions for an account and the Industry Member receives trading instructions for the account from a natural person who is employed by the entity authorized trader and who is authorized to trade for that account on behalf of the entity authorized trader?  For the purposes of this FAQ neither the entity authorized trader nor the employee authorized to trade for the account on behalf of the entity authorized trader is an account holder for the account at issue.
+      - If there is a CAT Customer with multiple valid Input Identifiers who is associated with a single account at a CAT Reporter firm which Input Identifier must be used to generate a Transformed Identifier for the Customer?
+      - To facilitate reporting of correct Customer names as required by the CAT NMS Plan the Full CAIS Technical Specifications require Natural Person first and last names to be reported in two separate fields. Accordingly if both the firstName and lastName fields for Natural Person Customers are not populated the Customer Record will be rejected. The Plan Participants understand that some Industry Members have historically maintained the first and last names in a single field within their system and may be unable to parse them into separate fields by the implementation schedule set forth in CAT Alerts 2022-01 and 2023-01. How must Industry Members report Natural Person Customers if the first and last names are not able to be parsed within the Industry Member’s system by the time the Customer Record is required to be reported to CAIS ?
+      - What FDIDs are in scope for Full CAIS reporting?
+      - If an Industry Member has received a “Not Held” order which only gives the Industry Member discretion as to the price and time of execution of the order must the Industry Member be identified as a CAT Customer on the related FDID Record in CAIS?
+      - Must the Industry Member be identified as a CAT Customer on the related FDID Record in CAIS when there are standing instructions on the Customer’s account when the Industry Member originates an order in a Customer’s account to satisfy a legal requirement or SEC/SRO rule or when the Industry Member liquidates fractional shares held in a Customer’s account to facilitate operational processes?
+      - Since clearing firms rely on their correspondent firms to provide Customer information required for CAIS reporting can a clearing firm reporting its version of a Customer on an FDID record replicate the attribute value for certain required data elements as provided by its correspondent firm?
+      - How must an FDID Record be reported to CAIS when the account holder is a foreign trust or foreign estate where an allowable Input Identifier value does not exist because the foreign country or foreign municipality does not require or issue any kind of identifier for the foreign trust or foreign estate and no such other allowable Input Identifier exists? For example the foreign trust or foreign estate has no associated Legal Entity Identifier (LEI) and is also not assigned any National Registration or Tax Identifier or any other governmental-issued identifier by a non-national level government body or agency such as a corporate registry.
+      - When a clearing firm is optionally reporting allocations to an account that is owned or controlled by an introducing broker/correspondent what value should the clearing firm populate in the accountType field for the related FDID Record?
+      - To facilitate reporting of Authorized Traders as required by the CAT NMS Plan the Full CAIS Technical Specifications require a firstName lastName yearOfBirth tidType and tidValue to be reported for all Natural Person Authorized Traders. Accordingly if these fields for Natural Person Customers are not populated the Customer Record will be rejected. The Plan Participants understand that some Industry Members have not historically collected and systematized a tidValue and yearOfBirth for Natural Person Authorized Traders and may be unable to report them as required by the Full CAIS Technical Specifications per the implementation schedule as set forth in CAT Alerts – 2022-01 and 2023-01. How must Industry Members report Natural Person Customers if they are not able to provide all required information by the Full CAIS Compliance Go-Live date?
+      - An Industry Member chooses to optionally report a DVP/RVP account that does not have a clearing number or DTC number. In this scenario how should the DVPCustodianID field be populated when a DVP/RVP account is temporarily not assigned a clearing number or DTC number because the account is new or the current clearing number or DTC number has been removed from DTCC's ALERT service and no new clearing number or DTC number is available?
+      - Are Industry Members required to report addresses at the Customer level and the account level?
+      - How must Industry Members report an FDID Record to CAIS in the scenario where the Authorized Trader is a government employee of a U.S. state county or municipality and acting in the capacity of a guardian or conservator for a minor or incapacitated person and the government employee Authorized Trader does not provide a year of birth or Input Identifier (such as a social security number) citing exemptions from the definition of “customer” under the Customer Identification Program (“CIP”) Rules?
+      - How must Industry Members report an FDID Record to CAIS when a disregarded entity and its parent company have the same Employer Identification Number (EIN) and are both CAT Customers associated to the same FDID? Does the reporting requirement change if the disregarded entity has a different EIN from its parent company?
+      - When reporting a piggyback clearing scenario to CAIS which Industry Member’s CRD number must the clearing firm populate in the correspondentCRD field when Firm A is piggybacking off of Firm B’s relationship with the clearing firm?
+      - How must Industry Members report an FDID Record to CAIS when a Natural Person and two trusts are all CAT Customers associated with the same FDID and the Tax Identifier of the two trusts is the same as the Natural Person’s Social Security Number (SSN)?
+      - In a Mass Transfer of FDIDs across Industry Members what constitutes an “Active Account” required to be reported to CAIS by the acquiring firm and when is it required to be reported to CAIS?
+      - What are the CAT clock synchronization standards for CAT Reporters?
+      - If I am an agency broker-dealer and I send my orders through a third-party service provider’s system (e.g. Bloomberg) what clock synchronization compliance obligations do I have with regard to the third-party service provider’s clocks and my own clocks? Do I need to do anything with regard to the internal systems (e.g. internal PCs or servers) or clocks within my own firm to satisfy the clock synchronization requirements?
+      - Does the CAT NMS Plan allow Industry Members to continue to write the time on order tickets or are Industry Members required to purchase mechanical time clocks?
+      - When during the day should clocks be synchronized?
+      - What clock synchronization procedures are required to comply with the CAT NMS Plan?
+      - Must broker-dealers maintain a log of the times clocks are synchronized?
+      - What time period is covered by the annual CAT Clock Synchronization Certification Form?
+      - What steps are being taken to ensure that the CAT is secure given heightened cybersecurity concerns?
+      - Will the CAT be required to satisfy the requirements of Reg SCI?
+      - How will CAT ensure the security of the data?
+      - What is the CAT?
+      - What type of information is in the CAT?
+      - What is Customer Account Information and Customer Identifying Information?
+      - How does the CAT protect social security numbers?
+      - Who has access to CAT Data?
+      - How can CAT Data be used?
+      - How do the Plan Processor and Participants protect CAT Data?
+      - What happens if there is unauthorized access to CAT Data?
+      - Where can Industry Members find information regarding production readiness testing requirements?
+      - How will Industry Members that use multiple CAT Reporting Agents (“CRA”) be certified for production?
+      - If the production readiness submission has an error rate exceeding 10% can the data be corrected and resubmitted for a subsequent certification attempt?
+      - Is production readiness testing available after June 8 2020?
+      - If an Industry Member successfully certifies for Phase 2a equity submissions must it recertify for Phase 2b options submissions?
+      - By what date must Industry Members that only handle orders in options complete production readiness testing?
+      - Clarifications to the descriptions of the ‘AUTHREP’ and ‘AUTH3RD’ values for the role field were published in version 2.0 r8 of the CAT Reporting Customer and Account Technical Specifications for Industry Members-Full CAIS (“Technical Specifications”) on April 8 2022. The revised descriptions will require a change to the value my firm must populate in the role field. Given the time constraints between publication and the Production Readiness Certification Deadline for Full CAIS (July 25 2022) is my firm required to change the ‘AUTH3RD’ value to ‘AUTHREP’ for FDID Records my firm intended to use to conduct testing for production readiness for Full CAIS reporting?
+      - The newOrderFDID field in the Post-Trade Allocation/Option Post-Trade Allocation Event (MEPA/MOPA) and Amended Allocation/Option Amended Allocation Event (MEAA/MOAA) is described as “The FDID of the related New Order event if available in the booking system.” What does “if available in the booking system” mean?
+      - What is an Allocation Report and who is required to report it?
+      - When an order is placed directly in a customer account is the firmDesignatedID (FDID) in the New Order event (MENO) or New Option Order event (MONO) required to be the same as the firmDesignatedID in the Post-Trade Allocation event (MEPA) or Option Post-Trade Allocation event (MOPA)?
+      - If the firmDesignatedID (FDID) in the New Order event (MENO) or New Option Order event (MONO) is not required to be the same as the firmDesignatedID in the Post-Trade Allocation event (MEPA) or Option Post-Trade Allocation event (MOPA) how will the events be linked?
+      - Are allocations to a firm owned or controlled account required to be reported? For example a registered representative of a self-clearing broker-dealer exercises discretion over multiple retail customer accounts and originates a single aggregated order that will be allocated to the specific customer accounts post trade. Shares are booked to a firm average price account until the sub-account allocations are made to the individual customer accounts.
+      - Are allocations to DVP accounts required to be reported? For example an institution places an order with an executing broker-dealer and gives instructions to DVP the shares to two different custodial broker-dealers.
+      - Can a fully disclosed introducing broker-dealer and its clearing firm use the same firmDesignatedID (FDID) for New Order events (MENO)/New Option Order events (MONO) and Post-Trade Allocation event (MEPA)/Option Post-Trade Allocation event (MOPA)?
+      - Are allocations to a registered investment advisor (RIA)/money manager’s average price account required to be reported even if the shares are only held there temporarily before being allocated to individual customer accounts? For example an RIA manages two customer accounts at a self-clearing firm. The RIA places a single order in its account that will be later allocated between the two customer accounts. The shares are booked to an average price account designated for the RIA at the self-clearing firm until the RIA provides subaccount allocation instructions and the allocations are made to the individual customer accounts.
+      - What value should be used to populate the eventTimestamp in the Post-Trade Allocation event (MEPA) or Option Post-Trade Allocation event (MOPA)?
+      - Are Clearing Member Trade Assignments (“CMTAs”) required to be reported to CAT?
+      - My firm’s allocations typically occur around 10 pm ET. Is my firm required to report the Post-Trade Allocation events (MEPA) and Option Post-Trade Allocation events (MOPA) by 8 am the next day?
+      - In a scenario where Firm A has an omnibus clearing relationship with Firm B which Industry Member has the responsibility for allocation reporting?
+      - Which Industry Member has the responsibility for allocation reporting in a piggyback clearing scenario?
+      - When may the Amended Allocation/Option Amended Allocation (MEAA/MOAA) events be reported to CAT?
+      - Are Allocation Reports required to be reported for both purchases and sales?
+      - Are accounts maintained by a clearing firm that are owned or controlled by another broker-dealer considered “customer” accounts for purposes of reporting Allocation Reports to CAT?
+      - Are changes to CAT reportable attributes of an allocation after the original booking of shares/contracts that occur post-settlement required to be reported to CAT as an Amended Allocation/Option Amended Allocation (MEAA/MOAA) event?
+      - Are Industry Members required to report Amended Allocation/Option Amended Allocation events (MEAA/MOAA) for allocations which occurred before the date an Industry Member is required to report allocation events to CAT?
+      - How should the DVPCustodianID field in the Post-Trade Allocation event (MEPA) be populated when an allocation involves a foreign entity for which a DTC number is known?
+      - When converting the price of a non-US dollar currency for the purpose of reporting a CAT Allocation event is it acceptable to use the end of day conversion rate?
+      - Is the side value ‘SX’ (Short Sale Exempt) required to be reported on a Post-Trade Allocation (MEPA) event?
+      - What are the requirements for clearing firms to report allocations to average price accounts of an Introducing Broker that may be exclusively for a specific client of the Introducing Broker?
+      - What does the term “booking” mean in relation to the reporting of CAT allocation events?
+      - Is an Industry Member that is a clearing broker required to report an allocation report before all required information about the allocation is known? Specifically allocations to DVP accounts require the DVPCustodianID field to be populated. How would the clearing firm report an allocation report if the DVPCustodianID is not yet available?
+      - Does an Industry Member have to report to the CAT allocations processed prior to the date an Industry Member is required to begin reporting allocation data to the CAT?
+      - Are Industry Members that are a clearing firm required to report the booking of shares into a customer account that result from an options exercise or other non-CAT reportable transaction to CAT?
+      - How should Industry Members populate the settlementDate field for allocations in “when-issued” securities?
+      - If an Industry Member aggregates shares from separate orders when booking equity shares back to the same customer account how should the side field be populated in the Post Trade Allocation event (MEPA) if the underlying transactions included both short and long sales?
+      - Since Clearing Firms rely on their correspondent firms to provide account holder information can a clearing firm reporting an allocation event (MEPA/MOPA) or amended allocation event (MEAA/MOAA) report the accountHolderType as provided by its correspondent firm?
+      - How is the cost of the CAT being funded?
+      - Which Industry Members will receive a CAT invoice?
+      - How is “CAT Executing Broker” defined for CAT billing purposes?
+      - How is a CAT Executing Broker’s CAT fee calculated?
+      - How is “executed equivalent shares” defined?
+      - How many types of CAT fees are there?
+      - How is the Historical Fee Rate for Historical CAT Assessments calculated?
+      - How is the Fee Rate for CAT Fees related to Prospective CAT Costs calculated?
+      - Will there be adjustments for trades that are cancelled or corrected?
+      - When will the first CAT invoices be issued?
+      - Is there a de minimis fee where an Industry Member would not receive an invoice?
+      - When is the payment due for the monthly CAT invoice?
+      - What payment methods are available for paying the CAT invoice?
+      - What should a firm do if payment was submitted but is not reflected on the CAT Reporter Portal?
+      - How are questions related to CAT invoices handled?
+      - Are trade details related to the CAT invoice available?
+      - How do I access the CAT invoice?
+      - How do I update my firm’s billing contact information?
+      - What happens if a firm does not enter a billing contact in the CAT Contact Management System?
+      - How will a firm be notified that CAT invoices have been published?
+      - Will separate receipts be issued for payment of CAT invoices?
+      - Where can I obtain a copy of CAT LLC’s W-9?
+      - How will transactions in fractional shares be treated under the funding model?
+      - This FAQ has been retired and archived. Please refer to Section W of the FAQs.
+      - How would CAT fees be assessed with regard to ATSs?
+      - How would CAT fees be assessed with regard to non-Industry Members on transaction reports?
+      - Will invoices be rounded to the nearest penny?
+      - When will CAT LLC send the last invoice for CAT Fee 2024-1?
+      - When CAT Fee 2024-1 ends will there be any more Prospective CAT Fees?
+      - Can an Industry Member receive an invoice with more than one CAT fee in one month?
+      - What is considered an \on-time\ payment for a CAT invoice?
+      - If a CAT Reporter disputes its CAT fees what is the process for addressing the disputed fees?
+      - How does a CAT Reporter commence the fee dispute resolution process?
+      - How does a CAT Reporter request a review by the Operating Committee of the decision of the Fee Review Subcommittee regarding a dispute involving its CAT Fees?
+      - What is a “business day” for purposes of the fee dispute resolution procedures?
