@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ask the Smart Cat</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f9f9f9;
+        }
+        img {
+            width: 300px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            width: 300px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #response {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        async function askQuestion() {
+            const question = document.getElementById("question").value;
+            const responseDiv = document.getElementById("response");
+            responseDiv.innerHTML = "Thinking...";
+
+            const response = await fetch("/api/answer", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ question }),
+            });
+
+            const data = await response.json();
+            responseDiv.innerHTML = data.answer || "No response.";
+        }
+    </script>
+</head>
+<body>
+    <!-- Display the smart cat image -->
+    <img src="{{ url_for('static', filename='smart_cat_1.JPG') }}" alt="Smart Cat">
+    <h1>Ask the Smart Cat</h1>
+    <input type="text" id="question" placeholder="Type your question..." />
+    <button onclick="askQuestion()">Ask</button>
+    <div id="response"></div>
+</body>
+</html>
