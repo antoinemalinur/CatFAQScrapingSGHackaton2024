@@ -80,6 +80,6 @@ else:
             "paragraphs": paragraphs
         })
 # save to root
-with open("squad_faq.json", "w", encoding="utf-8") as file:
+with open("../resources/squad_faq.json", "w", encoding="utf-8") as file:
     json.dump(squad_data, file, ensure_ascii=False, indent=2)
     print("Dataset SQuAD généré avec succès : squad_faq.json")
