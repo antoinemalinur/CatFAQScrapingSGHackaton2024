@@ -1,10 +1,10 @@
 version: "3.0"
 stories:
-  - story: respond to FAQ question
+  - story: respond to CAT-related question
     steps:
-      - intent: ask_questionCAT
-      - action: action_answer_question
-  - story: respond to general question
+      - intent: ask_cat_related_question
+      - action: action_answer_cat_related_question
+  - story: handle fallback for general queries
     steps:
-      - intent: ask_question
-      - action: action_default_fallback
+      - intent: fallback
+      - action: action_general_query

@@ -1,0 +1,8 @@
+{
+  "lookup": {
+    "eJyLrq6NBQAEOAGx": "action_listen",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3BChdnB1fWJpaDFJUWxsLALYCHoQ=": "custom_components.bert_qa_component.BertQAComponent",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3BChdnB1fWJpaDFJUS8Co5NLikvzc+OT83IL8PKDuYr2k1KKS+MJEhJCeE1Ak0NEZxidkYSwA4RdKaQ==": "utter_ask_question",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3BChdnB1fWJpaDFJUS8Co5NLikvzc+OT83IL8PKDuYr2k1KKS+MJEhJCeE1Ak0NEZxqfMwtKSktSieBQdBMyLBQD43Wl5": "action_listen"
+  }
+}

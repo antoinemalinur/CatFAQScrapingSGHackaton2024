@@ -1,9 +1,39 @@
 version: "3.0"
 nlu:
-  - intent: ask_question
+  - intent: fallback
     examples: |
-      - How are you?
-  - intent: ask_questionCAT
+      - What is the weather like?
+      - Tell me a joke.
+      - How old are you?
+      - Can you sing a song?
+      - What’s your name?
+      - Where are you from?
+      - How does this work?
+      - What is the time now?
+      - Do you know about movies?
+      - Can you tell me a story?
+      - What's 2+2?
+      - How do I cook pasta?
+      - Who won the game last night?
+      - What’s the best restaurant nearby?
+      - Tell me about the news today.
+      - Can you help me find a recipe?
+      - Why is the sky blue?
+      - What is your favorite color?
+      - Do you like pizza?
+      - What’s your favorite movie?
+      - What’s the capital of France?
+      - How tall are you?
+      - Can you dance?
+      - Who is the President of the United States?
+      - What day is it today?
+      - What’s your favorite book?
+      - How far is the moon from Earth?
+      - Can you solve math problems?
+      - Do you know about history?
+      - What’s your favorite sport?
+
+  - intent: ask_cat_related_question
     examples: |
       - What is the CATNMSPlan?
       - Tell me about the product warranty.

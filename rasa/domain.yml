@@ -1,24 +1,19 @@
 version: "3.0"
 
 intents:
-  - ask_question
-  - ask_questionCAT
+  - ask_cat_related_question
+  - fallback
 
 entities:
   - topic
   - keyword
 
-# slots:
-#   bert_answer:
-#     type: text
-#     influence_conversation: false
-
 responses:
-  utter_ask_question:
+  utter_ask_cat_related_question:
     - text: "Here's the answer: {bert_answer}"
   utter_default:
     - text: "I'm sorry, I couldn't find an answer to your question. Please try again."
 
 actions:
-  - action_default_fallback
-  - action_answer_question
+  - action_general_query
+  - action_answer_cat_related_question

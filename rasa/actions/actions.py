@@ -1,19 +1,33 @@
 from rasa_sdk import Action
-from rasa_sdk.executor import CollectingDispatcher
-from rasa_sdk.interfaces import Tracker
-from rasa_sdk.events import SlotSet
-from transformers import AutoTokenizer, AutoModelForQuestionAnswering
-import torch
-import os
-import json
 import numpy as np
 import faiss
-from transformers import pipeline, T5Tokenizer, T5ForQuestionAnswering, T5ForConditionalGeneration
+from transformers import T5Tokenizer, T5ForConditionalGeneration
 from sentence_transformers import SentenceTransformer
+from transformers import GPT2LMHeadModel, GPT2Tokenizer
+
+class ActionGeneralQuery(Action):
+    def name(self):
+        return "action_general_query"
+
+    def __init__(self):
+        # Load GPT-2 model and tokenizer
+        self.tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
+        self.model = GPT2LMHeadModel.from_pretrained("gpt2")
+
+    def run(self, dispatcher, tracker, domain):
+        query = tracker.latest_message.get("text")
+
+        # Generate a response
+        inputs = self.tokenizer.encode(query, return_tensors="pt")
+        outputs = self.model.generate(inputs, max_length=100, num_return_sequences=1)
+        reply = self.tokenizer.decode(outputs[0], skip_special_tokens=True)
+
+        # Send the response back to the user
+        dispatcher.utter_message(text=reply)
+        return []
 
 
-
-class ActionAnswerQuestion(Action):
+class ActionAnswerCatRelatedQuestion(Action):
     def __init__(self):
         import json
         with open("./data/cat_specs.json", 'r') as f:
@@ -37,7 +51,7 @@ class ActionAnswerQuestion(Action):
         self.model = T5ForConditionalGeneration.from_pretrained(self.model_name)
 
     def name(self):
-        return "action_answer_question"
+        return "action_answer_cat_related_question"
 
     def run(self, dispatcher, tracker, domain):
         # Obtenir la question de l'utilisateur
