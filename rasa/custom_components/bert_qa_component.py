@@ -17,8 +17,8 @@ class BertQAComponent(GraphComponent):
         logger.info("BertQAComponent is initialized")
 
         super().__init__(component_config)
-        self.tokenizer = AutoTokenizer.from_pretrained('./qa_finetuned_model', from_safetensors=True)
-        self.model = AutoModelForQuestionAnswering.from_pretrained('./qa_finetuned_model', from_safetensors=True)
+        self.tokenizer = AutoTokenizer.from_pretrained(model_path)
+        self.model = AutoModelForQuestionAnswering.from_pretrained(model_path)
 
         # Load the FAQ JSON file into memory (only once during initialization)
         faq_path = os.path.join(os.getcwd(), 'data', 'squad_faq.json')
