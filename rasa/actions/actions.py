@@ -58,3 +58,12 @@ class ActionAnswerQuestion(Action):
         # Envoyer la réponse à l'utilisateur
         dispatcher.utter_message(text=f"The answer is: {answer}")
         return []
+
+
+class ActionDefaultFallback(Action):
+    def name(self):
+        return "action_default_fallback"
+
+    def run(self, dispatcher, tracker, domain):
+        dispatcher.utter_message(text=f"Our bot is not trained on this type of interactions. Please reformulate your interaction.")
+        return []

@@ -1,8 +1,8 @@
 version: "3.0"
 
 intents:
-  - ask_question
-  - ask_questionCAT
+  - ask_cat_related_question
+  - default_fallback
 
 entities:
   - topic
