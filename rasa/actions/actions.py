@@ -15,23 +15,25 @@ from sentence_transformers import SentenceTransformer
 
 class ActionAnswerQuestion(Action):
     def __init__(self):
+        #Read the formated data (cat.pdf spec)
         import json
         with open("./data/cat_specs.json", 'r') as f:
             cat_specs_data = json.load(f)
 
+
+        #Encode the content
         self.chunks = [value["content"] for key, value in cat_specs_data.items() if
                   "content" in value and value["content"] != ""]
-        # Charger le modèle SentenceTransformer pour les embeddings
         self.embedder = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
 
         chunk_embeddings = self.embedder.encode(self.chunks)
 
-        # Build FAISS index
+        #Index using faiss
         self.dimension = chunk_embeddings.shape[1]
         self.index = faiss.IndexFlatL2(self.dimension)
         self.index.add(np.array(chunk_embeddings))
 
-        # Charger le modèle T5 fine-tuné
+        #Set the model pretained
         self.model_name = "./qa_finetuned_model"
         self.tokenizer = T5Tokenizer.from_pretrained(self.model_name)
         self.model = T5ForConditionalGeneration.from_pretrained(self.model_name)
@@ -40,22 +42,28 @@ class ActionAnswerQuestion(Action):
         return "action_answer_question"
 
     def run(self, dispatcher, tracker, domain):
-        # Obtenir la question de l'utilisateur
+        #get the question from user
         user_question = tracker.latest_message['text']
 
-
-        # Encoder la question
+        #Encode the question
         query_embedding = self.embedder.encode([user_question])
-        _, indices = self.index.search(np.array(query_embedding), k=5)  # Retrieve top 3 matches
+
+        #Get the first 5 context found from FISS
+        _, indices = self.index.search(np.array(query_embedding), k=5)
+
+        #Concat all contexts
         retrieved_chunks = [self.chunks[i] for i in indices[0]]
         context = " ".join(retrieved_chunks)
 
+        #Create the input text with the concatenated context
         input_text = f"question: {user_question} context: {context}"
         inputs = self.tokenizer(input_text, return_tensors="pt", padding=True, truncation=True)
         outputs = self.model.generate(inputs.input_ids, max_length=1024, num_beams=4, early_stopping=True)
+
+        #Using the model trained
         answer = self.tokenizer.decode(outputs[0], skip_special_tokens=True)
 
-        # Envoyer la réponse à l'utilisateur
+        #Display answer
         dispatcher.utter_message(text=f"The answer is: {answer}")
         return []
 

@@ -64,9 +64,7 @@
 
                 const data = await response.json();
 
-                // Vérifie s'il y a des messages renvoyés
                 if (data.length > 0) {
-                    // Combine les textes des réponses dans une chaîne HTML
                     const botResponse = data.map((res) => res.text).join("<br>");
                     responseDiv.innerHTML = botResponse; // Affiche les réponses
                 } else {
@@ -81,7 +79,6 @@
     </script>
 </head>
 <body>
-    <!-- Display the smart cat image -->
     <img src="{{ url_for('static', filename='smart_cat_1.JPG') }}" alt="Smart Cat">
     <h1>Ask the Smart Cat</h1>
     <input type="text" id="question" placeholder="Type your question..." />
