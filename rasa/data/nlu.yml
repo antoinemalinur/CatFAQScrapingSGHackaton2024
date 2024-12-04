@@ -1,9 +1,6 @@
 version: "3.0"
 nlu:
-  - intent: ask_question
-    examples: |
-      - How are you?
-  - intent: ask_questionCAT
+  - intent: ask_cat_related_question
     examples: |
       - What is the CATNMSPlan?
       - Tell me about the product warranty.

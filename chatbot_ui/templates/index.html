@@ -50,21 +50,35 @@
             const responseDiv = document.getElementById("response");
             responseDiv.innerHTML = "Thinking...";
 
-            const response = await fetch("/api/answer", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ question }),
-            });
+            try {
+                const response = await fetch("http://localhost:5005/webhooks/rest/webhook", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        sender: "antoine",
+                        message: question
+                    }),
+                });
 
-            const data = await response.json();
-            responseDiv.innerHTML = data.answer || "No response.";
+                const data = await response.json();
+
+                if (data.length > 0) {
+                    const botResponse = data.map((res) => res.text).join("<br>");
+                    responseDiv.innerHTML = botResponse; // Affiche les réponses
+                } else {
+                    responseDiv.innerHTML = "No response from the bot.";
+                }
+            } catch (error) {
+                console.error("Error:", error);
+                responseDiv.innerHTML = "An error occurred. Please try again.";
+            }
         }
+
     </script>
 </head>
 <body>
-    <!-- Display the smart cat image -->
     <img src="{{ url_for('static', filename='smart_cat_1.JPG') }}" alt="Smart Cat">
     <h1>Ask the Smart Cat</h1>
     <input type="text" id="question" placeholder="Type your question..." />
