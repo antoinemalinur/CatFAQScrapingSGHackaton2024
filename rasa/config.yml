@@ -3,7 +3,6 @@ pipeline:
 - name: WhitespaceTokenizer
 - name: RegexFeaturizer
 - name: CountVectorsFeaturizer
-- name: custom_components.bert_qa_component.BertQAComponent
 - name: DIETClassifier
 - name: EntitySynonymMapper
 - name: ResponseSelector

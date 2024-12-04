@@ -1,4 +1,1 @@
-rasa/qa_finetuned_model/*
-.catnms
-launch.json
 __pycache__
